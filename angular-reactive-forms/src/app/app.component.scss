@@ -1,0 +1,60 @@
+mat-form-field{
+
+    width: 300px;
+}
+form{
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    width: 350px;
+    height: auto;
+    border: 1px solid black ;
+    margin-top: 20px;
+    box-shadow: 10px 10px 54px -6px rgba(0,0,0,0.75);
+    border-radius: 7px;
+    padding: 10px;
+}
+
+.title{
+    margin-top: 20px;
+    width: 100%;
+}
+
+h2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.example-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.example-button-row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+mat-form-field-subscript-wrapper {
+    &.ng-invalid.ng-touched{
+        border-bottom: 1px solid red;
+    }
+    &.ng-valid{
+        border-bottom: 1px solid green;
+    }
+}
+
+.remove{
+    width: 70px;
+    height: 20px;
+    font-size: 10px;
+    line-height: 20px;
+    padding: 0px;
+}
+
+.email-block{
+  width: 300px;
+}

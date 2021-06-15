@@ -1,0 +1,34 @@
+<div class="title">
+  <h2>Template Driven approach</h2>
+</div>
+<form [formGroup] = "form" (ngSubmit)="submit()">
+  <div class="example-container">
+    <mat-form-field appearance="fill">
+      <mat-label>user name</mat-label>
+      <input type="text" matInput name="user" formControlName="userName">
+    </mat-form-field>
+    
+    <div class="email-block" formArrayName="userEmail" *ngFor="let mail of getControls(); let i=index">
+      <div [formGroupName]='i'>
+        <button class="remove" (click)="removeItem(i)" mat-raised-button type="button" >Remove Email</button>
+    <mat-form-field appearance="fill">
+      <mat-label>email</mat-label>
+      <input type="email" matInput name="email"  >
+    </mat-form-field>
+  </div>
+    </div>
+  <mat-form-field appearance="fill">
+    <mat-label>password</mat-label>
+    <input type="password" matInput  name="password" formControlName="userPassword">
+    <mat-error *ngIf="this.form.controls.userPassword.errors ?. checkVal">Password doesnt match</mat-error>
+  </mat-form-field>
+  <div class="example-button-row">
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Submit form</button>
+    <button mat-raised-button type="button" (click)="addEmail()">Add Email</button>
+    <button mat-raised-button type="button" >Remove Email</button>
+  </div>
+</div>
+
+</form>
+
+

@@ -1,0 +1,22 @@
+<div class="title">
+  <h2>Template Driven approach</h2>
+</div>
+<form #loginForm = "ngForm" (ngSubmit)="onSubmit()" novalidate>
+  <div ngModelGroup="login" class="example-container">
+    <mat-form-field appearance="fill">
+      <mat-label>email</mat-label>
+      <input required #email="ngModel" [class.alert] = "email.invalid && email.touched" type="email" matInput [(ngModel)]="userLogin.email" name="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required>
+      <mat-error *ngIf="email.invalid && email.touched">Invalid email address</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>password</mat-label>
+    <input required #password="ngModel" minlength="8" maxlength="12" [class.alert]="email.invalid && email.touched" type="password" matInput [(ngModel)]="userLogin.password" name="password">
+    <div *ngIf="password.errors && (password.touched || password.touched)"></div>
+    <mat-error *ngIf="password.errors?.required">Password is required.</mat-error>
+    <mat-error *ngIf="password.errors?.minlength">Password must be at least 8 characters long.</mat-error>
+  </mat-form-field>
+  <div class="example-button-row">
+    <button required minlength="8" mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Submit form</button>
+  </div>
+</div>
+</form>
